@@ -14,23 +14,22 @@ function curriculum_training_add_custom_box(){
 
 add_action ('add_meta_boxes', 'curriculum_training_add_custom_box');
 
-function curriculum_training_box_html(){
+function curriculum_training_box_html($post){
+
+	$val = get_post_meta( $post->ID, '_isiwp_curriculum_custom_meta', true );
 	?>
-<form>
-		<input type="hidden" name="action" value="isi_custom_response_curriculum">
-		<select name="monitoring_curriculum_mb" type="text" >
-			<option value="curriculum" >Choose an item</option>
-		</select>
-		<button type="submit" name="submit_curriculum" class="btn button-primary">+ Learning Program</button>
-</form>
-	<br>
-	<form>
-		<input type="hidden" name="action" value="isi_custom_response_curriculum_text">
-		<select name="monitoring_curriculum_text_mb" type="text" >
-			<option value="curriculum_text" >Choose an item</option>
-		</select>
-		<button type="submit" name="submit_curriculum_text" class="btn button-primary">+ Learning Program</button>
-	</form>
+
+    <label for="curriculum_training">Curriculum :</label>
+    <textarea style="width: 1000px; height: 100px" name="curriculum_box" ><?php echo $val?></textarea>
 
 	<?php
+}
+
+add_action( 'save_post', 'save_curriculum' );
+
+function save_curriculum($post_ID){
+
+	if ( isset( $_POST['curriculum_box'] ) ) {
+		update_post_meta( $post_ID, '_isiwp_curriculum_custom_meta', esc_html( $_POST['curriculum_box'] ) );
+	}
 }

@@ -39,7 +39,7 @@ function training_organization_table(): void
     $plugin_isiforma_db_version = VERSION_TABLE_BDD;
 
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-    //query for create table. 28 tables prefix -> isiforma_
+    //query for create table. 8 tables prefix -> isiforma_
     //organization
     dbDelta(SQL_ISI_CREATE_ORGANIZATION);
     //options for organization
@@ -49,30 +49,6 @@ function training_organization_table(): void
     dbDelta(SQL_ISI_CREATE_TYPE);
     dbDelta(SQL_ISI_CREATE_AUDIENCE);
     dbDelta(SQL_ISI_CREATE_FUNDING);
-    dbDelta(SQL_ISI_CREATE_TRAINING);
-    //place and rooms
-    dbDelta(SQL_ISI_CREATE_PLACE);
-    dbDelta(SQL_ISI_CREATE_ROOM);
-    dbDelta(SQL_ISI_CREATE_EQUIPEMENT);
-    //query for relation table
-    dbDelta(SQL_ISI_CREATE_REL_TRAINING_AUDIENCE);
-    dbDelta(SQL_ISI_CREATE_REL_TRAINING_MODALITY);
-    dbDelta(SQL_ISI_CREATE_REL_TRAINING_FUNDING);
-    dbDelta(SQL_ISI_CREATE_REL_TRAINING_TYPE);
-    dbDelta(SQL_ISI_CREATE_REL_TRAINING_LEVEL_REQUIRED);
-    dbDelta(SQL_ISI_CREATE_REL_TRAINING_CATEGORY);
-    //query for create options content training
-    dbDelta(SQL_ISI_CREATE_EDUCATIONAL_OBJECTIVES);
-    dbDelta(SQL_ISI_CREATE_TEACHINGS_METHODS);
-    dbDelta(SQL_ISI_CREATE_ASSESSMENT_MODALITY);
-    dbDelta(SQL_ISI_CREATE_PREREQUISITE);
-    dbDelta(SQL_ISI_CREATE_SCHEDULE);
-    dbDelta(SQL_ISI_CREATE_ASSESSMENT_METHODS);
-    dbDelta(SQL_ISI_CREATE_TARGETED_SKILLS);
-    dbDelta(SQL_ISI_CREATE_PEDAGOGICAL_MEANS);
-    dbDelta(SQL_ISI_CREATE_LEARNING_PROGRAM);
-    dbDelta(SQL_ISI_CREATE_SECTION);
-    dbDelta(SQL_ISI_CREATE_LECTURE);
 
     /**
      * SQL FOR CREATE A CATEGORY DEFAULT ON TABLE ISIFORMA_CATEGORY
@@ -134,12 +110,6 @@ function remove_all_table_isiforma(): void
 
     // REQUETE SQL FOR REMOVE TABLE ON DESACTIVATION PLUGIN
 
-    $wpdb->query(SQL_ISI_REMOVE_REL_TRAINING_FUNDING);
-    $wpdb->query(SQL_ISI_REMOVE_REL_TRAINING_TAGS);
-    $wpdb->query(SQL_ISI_REMOVE_REL_TRAINING_MODALITY);
-    $wpdb->query(SQL_ISI_REMOVE_REL_TRAINING_TYPE);
-    $wpdb->query(SQL_ISI_REMOVE_REL_TRAINING_LEVEL);
-    $wpdb->query(SQL_ISI_REMOVE_REL_TRAINING_CATEGORY);
     $wpdb->query(SQL_ISI_REMOVE_ORGANIZATION);
     $wpdb->query(SQL_ISI_REMOVE_CATEGORY);
     $wpdb->query(SQL_ISI_REMOVE_MODALITY);
@@ -147,21 +117,6 @@ function remove_all_table_isiforma(): void
     $wpdb->query(SQL_ISI_REMOVE_REQUIRED_LEVEL);
     $wpdb->query(SQL_ISI_REMOVE_AUDIENCE);
     $wpdb->query(SQL_ISI_REMOVE_FUNDING);
-    $wpdb->query(SQL_ISI_REMOVE_TRAINING);
-    $wpdb->query(SQL_ISI_REMOVE_PLACE);
-    $wpdb->query(SQL_ISI_REMOVE_ROOM);
-    $wpdb->query(SQL_ISI_REMOVE_EQUIPEMENT);
-    $wpdb->query(SQL_ISI_REMOVE_EDUCATION_OBJECTIVES);
-    $wpdb->query(SQL_ISI_REMOVE_TEACHING_METHODS);
-    $wpdb->query(SQL_ISI_REMOVE_ASSESSMENT_MODALITY);
-    $wpdb->query(SQL_ISI_REMOVE_PREREQUISITE);
-    $wpdb->query(SQL_ISI_REMOVE_SCHEDULE);
-    $wpdb->query(SQL_ISI_REMOVE_ASSESSMENT_METHODS);
-    $wpdb->query(SQL_ISI_REMOVE_TARGETED_SKILLS);
-    $wpdb->query(SQL_ISI_REMOVE_PEDAGOGICAL_MEANS);
-    $wpdb->query(SQL_ISI_REMOVE_LEARNING_PROGRAM);
-    $wpdb->query(SQL_ISI_REMOVE_SECTION);
-    $wpdb->query(SQL_ISI_REMOVE_LECTURE);
 
     delete_option("plugin_isiforma_db_version");
 

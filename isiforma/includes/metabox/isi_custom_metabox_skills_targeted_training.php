@@ -14,28 +14,23 @@ function skills_targeted_training_add_custom_box(){
 
 add_action ('add_meta_boxes', 'skills_targeted_training_add_custom_box');
 
-function skills_targeted_training_box_html(){
+function skills_targeted_training_box_html($post){
+
+	$val = get_post_meta( $post->ID, '_isiwp_skills_targeted_custom_meta', true);
 	?>
-	<h3>List of Skills Targeted</h3>
+
+    <label for="skills_targeted_training"> Skills targeted :</label>
+    <textarea style="width: 1000px; height: 100px" name="skills_targeted_training_box"  id="skills_targeted_training"><?php echo $val ?></textarea>
+
+
 	<?php
-	/**
-	 * Function list_skills_targeted_training for list all skills targeted on table for view form.
-	 */
-	//TODO
-	//list_skills_targeted_training();
-	?>
-	<!-- New skills targeted -->
-	<h3>Add a new skill targeted</h3>
-	<!-- Form  -->
-<form method="POST" action="<?php echo admin_url('admin-ajax.php'); ?>">
-		<input type="hidden" name="action" value="isi_custom_response_skill_targeted">
-		<select name="skill_targeted_training_mb" type="text" >
-			<option value="skill_targeted" >Choose an item</option>
-		</select>
-		<button type="submit" name="submit_skill_targeted" class="btn button-primary">Add</button>
-</form>
-    <?php
+}
+add_action( 'save_post', 'save_skills_targeted' );
 
+function save_skills_targeted($post_ID) {
 
+	if ( isset( $_POST['skills_targeted_training_box'] ) ) {
+		update_post_meta($post_ID, '_isiwp_skills_targeted_custom_meta', esc_html( $_POST['skills_targeted_training_box']));
 
+	}
 }

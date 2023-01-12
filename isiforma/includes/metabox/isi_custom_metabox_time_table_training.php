@@ -14,34 +14,24 @@ function time_table_training_add_custom_box(){
 
 add_action ('add_meta_boxes', 'time_table_training_add_custom_box');
 
-function time_table_training_box_html(){
+
+function time_table_training_box_html($post){
+
+	$val = get_post_meta( $post->ID, '_isiwp_time_table_custom_meta', true);
 	?>
-	<h3>List of Times</h3>
+    <h3>Time table</h3>
+
+    <label for="time_table_training">Time table</label>
+    <textarea style="width: 1000px; height: 100px" name="time_table_training_box" type="text"  id="time_table_training"><?php echo $val ?></textarea>
 
 	<?php
-	/**
-	 * Function list_timetable_training for list all prices on table for view form.
-	 */
-	//TODO
-	//list_timetable_training();
-	?>
-	<!-- New TimeTable -->
-	<h3>Add a new TimeTable</h3>
-	<!-- Form  -->
-<form method="POST" action="<?php echo admin_url('admin-ajax.php'); ?>">
-		<input type="hidden" name="action" value="isi_custom_response_timetable">
-		<select name="timetable_start_training_mb" type="text" >
-			<option value="timetable" >Start</option>
-		</select>
-		<select name="timetable_end_training_mb" type="text" >
-			<option value="timetable" >End</option>
-		</select>
-		<button type="submit" name="submit_timetable" class="btn button-primary">Add</button>
-</form>
-    <?php
-
 }
+add_action( 'save_post', 'save_time_table' );
 
-function list_timetable_training(){
+function save_time_table($post_ID) {
 
+	if ( isset( $_POST['time_table_training_box'] ) ) {
+		update_post_meta($post_ID, '_isiwp_time_table_custom_meta', esc_html( $_POST['time_table_training_box']));
+
+	}
 }

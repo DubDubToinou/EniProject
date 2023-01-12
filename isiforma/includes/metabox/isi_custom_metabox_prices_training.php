@@ -19,7 +19,6 @@ function prices_training_box_html($post){
 
 	$val = get_post_meta( $post->ID, '_isiwp_price_custom_meta', true);
     ?>
-    <h3>Price</h3>
 
         <label for="price_training"> Price :</label>
         <input name="price_training_box" type="number"  id="price_training" value="<?php echo $val ?>"> Euros

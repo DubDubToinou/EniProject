@@ -23,10 +23,9 @@ function duration_training_box_html( $post ) {
 
 	$val = get_post_meta( $post->ID, '_isiwp_duration_custom_meta', true);
     ?>
-    <h3>Duration</h3>
-<!--<form>-->
+
         <label for="duration_training">Duration :</label>
-        <input name="duration_training" type="number" id="duration_training" value="<?php echo $val ?>"> minutes
+        <input name="duration_training" type="number" id="duration_training" value="<?php echo $val ?>"> heures
 
 	<?php
 }

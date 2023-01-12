@@ -14,31 +14,25 @@ function pedagogical_means_training_add_custom_box(){
 
 add_action ('add_meta_boxes', 'pedagogical_means_training_add_custom_box');
 
-function pedagogical_means_training_box_html(){
+function pedagogical_means_training_box_html($post){
+
+	$val = get_post_meta( $post->ID, '_isiwp_pedagogical_means_custom_meta', true );
 	?>
-	<h3>List of Pedagogical Means</h3>
+
+
+    <label for="pedagogical_means_training">Prerequisites :</label>
+    <textarea style="width: 1000px; height: 100px"  name="pedagogical_means_box" type="text"><?php echo $val?></textarea>
+
 	<?php
-	/**
-	 * Function list_prices_training for list all prices on table for view form.
-	 */
-	//TODO
-	//list_pedagogical_means_training();
-	?>
-	<!-- New pedagogical means -->
-	<h3>Add a new Pedagogical Means</h3>
-	<!-- Form  -->
-	<form method="POST" action="<?php echo admin_url('admin-ajax.php'); ?>">
-		<input type="hidden" name="action" value="isi_custom_response_pedagogical_means">
-		<select name="pedagogical_means_training_mb" type="text" >
-			<option value="pedagogical_means" >Choose an item</option>
-		</select>
-		<button type="submit" name="submit_pedagogical_means" class="btn button-primary">Add</button>
-    </form>
-    <?php
 }
 
-function list_pedagogical_means_training(){
+add_action( 'save_post', 'save_pedagogical_means' );
 
+function save_pedagogical_means($post_ID){
+
+	if ( isset( $_POST['pedagogical_means_box'] ) ) {
+		update_post_meta( $post_ID, '_isiwp_pedagogical_means_custom_meta', esc_html( $_POST['pedagogical_means_box'] ) );
+	}
 }
 
 

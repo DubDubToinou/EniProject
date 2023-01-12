@@ -35,7 +35,7 @@ function wpm_custom_post_type()
         'labels' => $labels,
         'menu_icon' => 'dashicons-video-alt2', // ajout icon ed e menu
         // On définit les options disponibles dans l'éditeur de notre custom post type ( un titre, un auteur...)
-        'supports' => array('title', 'author', 'thumbnail', 'revisions', 'custom-fields',),
+        'supports' => array('title', 'author', 'editor' ,'thumbnail', 'revisions', 'custom-fields',),
         /*
         * Différentes options supplémentaires
         */

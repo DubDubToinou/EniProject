@@ -19,12 +19,9 @@ function evaluation_methods_training_box_html($post){
 	$val = get_post_meta( $post->ID, '_isiwp_evaluation_methods_custom_meta', true );
     ?>
 	<!-- Add a evaluation methods -->
-	<h3>Evaluation Methods</h3>
 
-
-        <label for="evaluation_methods_training"> Evaluation Methods :</label>
-    <input name="evaluation_methods_box" type="text" value="<?php echo $val?>">
-
+    <label for="evaluation_methods_training"> Evaluation Methods :</label>
+    <textarea style="width: 1000px; height: 100px" name="evaluation_methods_box"><?php echo $val?></textarea>
 
     <?php
 }

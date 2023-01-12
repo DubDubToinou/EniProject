@@ -21,16 +21,16 @@ require_once plugin_dir_path(__FILE__) . 'form/isi_admin_form_audience.php';
 
 require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_duration_training.php';
 require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_prices_training.php';
-//require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_curriculum_training.php';
+require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_curriculum_training.php';
 require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_evaluation_methods_training.php';
-//require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_monitoring_methods_training.php';
-//require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_pedagogical_means_training.php';
-//require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_pedagogical_methods_training.php';
-//require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_prerequisites_training.php';
-//require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_skills_targeted_training.php';
-//require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_time_table_training.php';
+require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_monitoring_methods_training.php';
+require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_pedagogical_means_training.php';
+require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_pedagogical_methods_training.php';
+require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_prerequisites_training.php';
+require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_skills_targeted_training.php';
+require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_time_table_training.php';
 //add custom meta box
-//require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_educational_objectives.php';
+require_once plugin_dir_path(__FILE__) . 'metabox/isi_custom_metabox_educational_objectives.php';
 
 //Hook the 'admin_menu' action hook, run the function named 'isi_Add_Admin_Link()'
 add_action('admin_menu', 'isi_add_admin_link');

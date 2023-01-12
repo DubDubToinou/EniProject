@@ -14,29 +14,22 @@ function prerequisites_training_add_custom_box(){
 
 add_action ('add_meta_boxes', 'prerequisites_training_add_custom_box');
 
-function prerequisites_training_box_html(){
+function prerequisites_training_box_html($post){
+
+	$val = get_post_meta( $post->ID, '_isiwp_prerequisites_custom_meta', true );
 	?>
-	<h3>List of Prerequisites </h3>
+
+    <label for="prerequisites_training">Prerequisites :</label>
+    <textarea style="width: 1000px; height: 100px" name="prerequisites_box" type="text"><?php echo $val?></textarea>
+
 	<?php
-	/**
-	 * Function list_prerequisites_training for list all prices on table for view form.
-	 */
-	//TODO
-	//list_prerequisites_training();
-	?>
-	<!-- New pedagogical means -->
-	<h3>Add a new Prerequisites</h3>
-	<!-- Form  -->
-	<form method="POST" action="<?php echo admin_url('admin-ajax.php'); ?>">
-		<input type="hidden" name="action" value="isi_custom_response_prerequisites">
-		<select name="prerequisites_training_mb" type="text" >
-			<option value="prerequisites" >Choose an item</option>
-		</select>
-		<button type="submit" name="submit_prerequisites" class="btn button-primary">Add</button>
-    </form>
-    <?php
-
 }
-function list_prerequisites_training(){
 
+add_action( 'save_post', 'save_prerequisites' );
+
+function save_prerequisites($post_ID){
+
+	if ( isset( $_POST['prerequisites_box'] ) ) {
+		update_post_meta( $post_ID, '_isiwp_prerequisites_custom_meta', esc_html( $_POST['prerequisites_box'] ) );
+	}
 }
