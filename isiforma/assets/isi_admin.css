@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700&display=swap');
+
+#wpbody{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    color: #141414;
+}
+
+a{
+    text-decoration: none;
+}
+
+.content-collapsible-settings{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+    gap: 20px;
+    font-size: 16px;
+}
+
+/*
+    CSS FOR COLLAPSIBLE MENU
+ */
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    cursor: pointer;
+    padding: 12px;
+    width: 90%;
+    background-color: #135E96;
+    color: #ffffff;
+    border-radius: 17px;
+    border: none;
+    text-align: left;
+    box-shadow: 1px 1px 3px 0px rgb(0 0 0 / 16%);
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active-collapsible, .collapsible:hover {
+    background-color: rgba(19, 94, 150, 0.68);
+    color: black;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content-isi-form {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: rgba(0, 129, 246, 0.04);
+    transition: max-height 0.2s ease-out;
+    flex-direction: column;
+    gap: 30px;
+    }
+
+.collapsible:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+}
+
+.active-collapsible:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.list_table {
+    text-align: center;
+    background-color: white;
+    height: 40px;
+    width: auto;
+}
+
+.form-collapse-required-level{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-collapse-required-level form{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/*
+__________________ CSS TABLE SETTINGS ISIFORMA ___________________
+
+ */
+table{
+    width: 70%;
+}
+
+.form-settings{
+    margin-bottom: 0;
+}
+
+/*
+___________________________ CSS MODAL ______________________________
+
+/* The Modal (background) */
+.isi-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 40px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+    box-shadow: 0px 20px 24px -4px rgba(16, 24, 40, 0.08), 0px 8px 8px -4px rgba(16, 24, 40, 0.03);
+    border-radius: 20px;
+}
+
+/* The Close Button */
+.closeModal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeModal:hover,
+.closeModal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* _____________________ CSS ALERT _________________________________________*/
+
+#insert_success{
+    display: none;
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 7px;
+    width: 300px;
+    text-align: center;
+    margin : 0;
+}
+
+#name_error{
+    display: none;
+    text-align: center;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 7px;
+    width: 300px;
+    margin : 0;
+
+}
+
+.choice{
+    display: inline-block;
+    margin-right: 15px;
+    padding: 3px 0px;
+    width: 200px;
+    text-align: right;
+}
+#formulaire{
+    margin-top: 50px;
+}
+.tooltip{
+    visibility: hidden;
+}
+input{
+    border-radius: 3px;
+    border-color:
+            #CCC;
+    border-style: solid;
+    border-width: 1px;
+}
+/**********************
+ */
+/*
+.editor-post-taxonomies__hierarchical-terms-add{
+    visibility: hidden;
+}*/
+/*.components-button {*/
+/*    visibility : hidden;*/
+/*}*/
